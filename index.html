@@ -3,21 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Interactive Webpage</title>
+    <title>Section Navigator with Transitions</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to My Local Webpage!</h1>
-    <p>This is a simple interactive webpage that runs locally on your computer.</p>
+    <div id="sections-container">
+        <section class="section active" id="section-1">
+            <img src="images/image1.png" alt="Image 1" class="large-image">
+            <button onclick="navigate(-1)" type="button">Previous Section</button>
+            <button onclick="navigate(1)" type="button">Next Section</button>
+        </section>
+        <section class="section right" id="section-2">
+            <img src="images/image2.png" alt="Image 1" class="large-image">
+            <button onclick="navigate(-1)" type="button">Previous Section</button>
+            <button onclick="navigate(1)" type="button">Next Section</button>
+        </section>
+        <section class="section right" id="section-3">
+            <img src="images/image3.png" alt="Image 1" class="large-image">
+            <button onclick="navigate(-1)" type="button">Previous Section</button>
+            <button onclick="navigate(1)" type="button">Next Section</button>
+        </section>
+        <section class="section right" id="section-4">
+            <img src="images/image4.png" alt="Image 1" class="large-image">
+            <button onclick="navigate(-1)" type="button">Previous Section</button>
+            <button onclick="navigate(1)" type="button">Next Section</button>
+        </section>
+        <section class="section right" id="section-5">
+            <img src="images/image5.png" alt="Image 1" class="large-image">
+            <button onclick="navigate(-1)" type="button">Previous Section</button>
+            <button onclick="navigate(1)" type="button">Next Section</button>
+        </section>
+        <section class="section right" id="section-6">
+            <img src="images/image6.png" alt="Image 1" class="large-image">
+            <button onclick="navigate(-1)" type="button">Previous Section</button>
+            <button onclick="navigate(1)" type="button">Next Section</button>
+        </section>
+        <section class="section right" id="section-7">
+            <img src="images/image7.png" alt="Image 1" class="large-image">
+            <button onclick="navigate(-1)" type="button">Previous Section</button>
+            <button onclick="navigate(1)" type="button">Next Section</button>
+        </section>
+        <section class="section right" id="section-8">
+            <img src="images/image8.png" alt="Image 1" class="large-image">
+            <button onclick="navigate(-1)" type="button">Previous Section</button>
+            <button onclick="navigate(1)" type="button">Next Section</button>
+        </section>
+    </div>
 
-    <!-- Image element -->
-    <img src="images/example-image.jpg" alt="Example Image" id="exampleImage">
-
-    <label for="name">Enter your name:</label>
-    <input type="text" id="name" placeholder="Your Name">
-    <button onclick="greetUser()">Greet Me</button>
-
-    <div id="message"></div>
 
     <script src="script.js"></script>
 </body>
