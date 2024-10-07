@@ -1,33 +1,60 @@
 // script.js
-let currentSectionIndex = 0;
+let currentIndex = 0;
+let maxIndex = 12;
 
 function navigate(direction) {
+
     const sections = document.querySelectorAll('.section');
-    
-    // Hide the currently active section
-    sections[currentSectionIndex].classList.remove('active');
-    if (direction == 1) {
-        sections[currentSectionIndex].classList.add('left');
-    }
-    else if (direction == -1) {
-        sections[currentSectionIndex].classList.add('right');
-    }
 
     // Calculate the new index
-    currentSectionIndex += direction;
-    if (currentSectionIndex < 0) {
-        currentSectionIndex = 0;
-    } else if (currentSectionIndex >= sections.length) {
-        currentSectionIndex = sections.length - 1;
+    currentIndex += direction;
+    if (currentIndex < 0) {
+        currentIndex = 0;
+    } else if (currentIndex > maxIndex) {
+        currentIndex = maxIndex;
     }
+    
+    sections.forEach(section => {
+        const showFrom = parseInt(section.dataset.showFrom);
+        const hideAfter = parseInt(section.dataset.hideAfter);
+        
+        if (currentIndex < showFrom) {
+            setTimeout(() => {
+                section.classList.remove('active');
+                section.classList.add('right');
+            }, 5);
+        }
+        else if (currentIndex > hideAfter) {
+            setTimeout(() => {
+                section.classList.remove('active');
+                section.classList.add('left');
+            }, 5);
+        }
+        else {
+            setTimeout(() => {
+                section.classList.remove('right', 'left');
+                section.classList.add('active');
+            }, 5);
+        }
+    })
+    
+    // // Hide the currently active section
+    // sections[currentSectionIndex].classList.remove('active');
+    // if (direction == 1) {
+    //     sections[currentSectionIndex].classList.add('left');
+    // }
+    // else if (direction == -1) {
+    //     sections[currentSectionIndex].classList.add('right');
+    // }
 
-    // Remove old tag
-    sections[currentSectionIndex].classList.remove('left', 'right')
 
-    // Show the new active section
-    setTimeout(() => {
-        sections[currentSectionIndex].classList.add('active');
-    }, 5); // Small delay to ensure transition is applied
+    // // Remove old tag
+    // sections[currentSectionIndex].classList.remove('left', 'right')
+
+    // // Show the new active section
+    // setTimeout(() => {
+    //     sections[currentSectionIndex].classList.add('active');
+    // }, 5); // Small delay to ensure transition is applied
 }
 
 // Handle arrow key navigation
